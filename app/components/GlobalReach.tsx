@@ -146,7 +146,7 @@ export function GlobalReach() {
         </svg>
       </div>
 
-      <div className="absolute inset-x-6 bottom-8 flex flex-col gap-1 sm:inset-x-10 sm:bottom-10">
+      <div className="absolute inset-x-6 bottom-10 flex flex-col gap-1 pl-2 sm:inset-x-10 sm:bottom-10 sm:pl-0">
         <p data-label className="font-mono text-xs tracking-[0.14em] sm:text-sm" style={{ color: "var(--line-bright)" }}>
           OPERATIONAL FOOTPRINT
         </p>

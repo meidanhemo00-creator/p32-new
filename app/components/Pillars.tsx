@@ -99,10 +99,10 @@ export function Pillars() {
         </p>
 
         <div
-          className="mt-16 overflow-hidden border"
+          className="mt-10 overflow-hidden border sm:mt-16"
           style={{ borderColor: "var(--hairline-light)", background: "var(--ink)" }}
         >
-          <EcosystemDiagram variant="unified" trigger="scroll" className="aspect-[16/9] w-full" />
+          <EcosystemDiagram variant="unified" trigger="scroll" className="aspect-[4/3] w-full sm:aspect-[16/9]" />
         </div>
         <p className="mt-3 font-mono text-xs tracking-[0.1em]" style={{ color: "var(--line-on-paper)" }}>
           THE SAME ECOSYSTEM. ONE ARCHITECTURE.

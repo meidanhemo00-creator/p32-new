@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ComponentType, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type ComponentType, type CSSProperties } from "react";
 import { useGsap } from "@/app/lib/gsap";
 import { useReducedMotion } from "@/app/lib/useReducedMotion";
 import { Grain } from "./Grain";
@@ -121,6 +121,9 @@ function CapabilityGroup({
   const rootRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
   const { gsap, ScrollTrigger } = useGsap();
+  const [expanded, setExpanded] = useState(false);
+  const VISIBLE_ON_MOBILE = 2;
+  const hiddenCount = Math.max(items.length - VISIBLE_ON_MOBILE, 0);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -170,11 +173,13 @@ function CapabilityGroup({
       </div>
 
       <div className="mt-6 border-t" style={{ borderColor: "var(--hairline-dark)" }}>
-        {items.map((item) => (
+        {items.map((item, i) => (
           <div
             key={item.name}
             data-flap
-            className="grid grid-cols-1 gap-1 border-b py-4 sm:grid-cols-[minmax(0,20rem)_1fr] sm:gap-8 sm:py-5"
+            className={`grid grid-cols-1 gap-1 border-b py-4 sm:grid-cols-[minmax(0,20rem)_1fr] sm:gap-8 sm:py-5 ${
+              i >= VISIBLE_ON_MOBILE && !expanded ? "hidden sm:grid" : ""
+            }`}
             style={{ borderColor: "var(--hairline-dark)" }}
           >
             <span className="text-base font-medium text-white sm:text-lg">{item.name}</span>
@@ -193,6 +198,21 @@ function CapabilityGroup({
           </div>
         ))}
       </div>
+
+      {hiddenCount > 0 && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          className="mt-4 flex w-full items-center justify-between border px-4 py-3.5 font-mono text-xs tracking-[0.1em] text-white sm:hidden"
+          style={{ borderColor: "var(--hairline-dark)" }}
+        >
+          <span>{expanded ? "SHOW FEWER" : `SHOW ${hiddenCount} MORE`}</span>
+          <span aria-hidden style={{ color: "var(--line)" }}>
+            {expanded ? "↑" : "↓"}
+          </span>
+        </button>
+      )}
     </div>
   );
 }

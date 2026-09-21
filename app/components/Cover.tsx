@@ -52,7 +52,7 @@ export function Cover() {
   return (
     <section
       ref={rootRef}
-      className="relative flex min-h-[100svh] flex-col justify-between bg-paper px-6 py-10 text-black sm:px-10 sm:py-12"
+      className="relative flex min-h-[100svh] flex-col justify-between bg-paper px-6 pb-10 pt-24 text-black sm:px-10 sm:py-12"
     >
       <div data-reveal className="flex items-start justify-between gap-6">
         <div className="flex items-center gap-2.5">

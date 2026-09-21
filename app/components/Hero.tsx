@@ -44,10 +44,20 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink">
       <div className="absolute inset-0">
-        <HeroField />
+        <div className="opacity-45 sm:opacity-100">
+          <HeroField />
+        </div>
         <Grain />
+        {/* Mobile: diagram reads as quiet ambient texture, not content to parse - headline gets a clean, protected, solidly-scrimmed zone. */}
         <div
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 sm:hidden"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(9,9,9,0.55) 0%, rgba(9,9,9,0.7) 38%, rgba(9,9,9,0.97) 100%)",
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0 hidden sm:block"
           style={{
             background:
               "linear-gradient(180deg, rgba(9,9,9,0.3) 0%, rgba(9,9,9,0.5) 55%, rgba(9,9,9,0.96) 100%)",
@@ -55,8 +65,8 @@ export function Hero() {
         />
       </div>
 
-      <div ref={textRef} className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-16 pt-40 sm:px-10 sm:pb-24">
-        <h1 className="max-w-4xl font-display text-[2.5rem] font-medium leading-[1.05] tracking-[-0.02em] text-white sm:text-[3.5rem] lg:text-[4.5rem]">
+      <div ref={textRef} className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-14 pt-28 sm:px-10 sm:pb-24 sm:pt-40">
+        <h1 className="max-w-4xl font-display text-[2.1rem] font-medium leading-[1.12] tracking-[-0.02em] text-white sm:text-[3.5rem] sm:leading-[1.05] lg:text-[4.5rem]">
           <span data-wipe className="block">
             Security is not a service.
           </span>
