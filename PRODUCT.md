@@ -42,9 +42,11 @@ Anchor line for the narrative (use where it earns its place): **"Security is not
 
 ## Operating Context
 
-The visitor's operating reality is the premise of the whole narrative: they are not managing one environment but operating across multiple jurisdictions, corporate structures and investments, public visibility and private exposure, and a network of family members, advisors, employees, and third parties. Each added layer expands footprint and introduces risk, and these layers are rarely unified under a single security architecture.
+**Opening screen:** the site opens on a restrained, white/off-white cover screen (`app/components/Cover.tsx`) that translates the source PDF's own title page literally — P32 identity, "Licensed and supervised by the Israeli Ministry of Defense," "Security Architecture for Ultra-High-Net-Worth," and "Individuals, Families, Corporations & Global Assets," in minimal black typography with one pale-blue rule as the only color detail. It scroll-transitions into the dark "A Different Category of Risk" section below, which carries the full operating-reality list. This cover is a document coming to life, not a generic marketing hero — keep it distinct from the Hero network-diagram section that follows.
 
-Note: the source document's fragmentation list also named "real estate portfolios" as an operating environment. It appeared in the site (Fragmentation layer list, hero/unified diagrams) through an earlier revision and was removed at the user's explicit request, not because it was inaccurate to the source — it is accurate, just not something the client wants surfaced on this visitor-facing surface.
+The visitor's operating reality is the premise of the whole narrative: they are not managing one environment but operating across multiple jurisdictions, corporate structures and investments, real estate portfolios, public visibility and private exposure, and a network of family members, advisors, employees, and third parties. Each added layer expands footprint and introduces risk, and these layers are rarely unified under a single security architecture.
+
+Note: real estate portfolios was briefly removed from the visitor-facing surface at the user's request, then restored on further client review — it is essential to the opening section's meaning per the source PDF and stays in permanently. Treat this list as the fixed, complete operating-reality list going forward; do not remove any item from it again without a fresh explicit instruction.
 
 Risk, per source material, rarely enters through obvious channels — it enters through people, access, and information gaps across the visitor's extended network of advisors, vendors, partners, contractors, and extended networks.
 
@@ -59,24 +61,15 @@ Engagement model: P32 works with a limited number of principals and organization
 3. **Asset & Infrastructure Protection** — multi-property and estate security architecture; commercial asset and facility risk design; global travel and movement security planning; secure logistics and operational movement.
 4. **Intelligence & Risk Oversight** — strategic intelligence briefings; reputation and exposure monitoring; threat identification before it materializes; ongoing risk visibility across all environments.
 
-**Expanded intelligence, cyber, monitoring, and operational capability domains** (source: Materials for Guy Landing Page, internally labeled "P9" — that label is an internal codename, not a confirmed visitor-facing product name; whether to surface it publicly is an open decision):
+**Protective Canine Training & Deployment** — specialist training, integration, and operational use of protection dogs as part of layered personal, residential, estate, and site-security programs. Presented as a standalone capability with its own major visual moment (`app/components/Canine.tsx`), positioned directly after the four core pillars. No certifications, breeds, or performance numbers are invented — copy stays at the level of specificity the source material supports.
 
-- Multi-Platform Social Media Monitoring — continuous collection across TikTok, Facebook, X/Twitter, Instagram, YouTube, and Reddit, in every relevant language.
-- Executive Protective Monitoring — dedicated monitoring of threats, targeting, and hostile attention directed at protected individuals.
-- Travel & Event Intelligence — pre-travel and pre-event intelligence on routes, venues, local narratives, security risks, scheduled demonstrations, and on-ground threat signals.
-- Impersonation Detection — identification of fake profiles, spoofed accounts, and identity misuse across digital platforms and domains.
-- Threat Actor Profiling — in-depth profiling of hostile actors (identity, background, affiliations, capability, intent) from a single starting indicator.
-- Narrative & Sentiment Tracking — analysis of harmful narratives surfacing across social platforms and media, tracking sentiment shifts before they escalate.
-- Dark Web & Leaks — monitoring of closed communities, breach data, and leaked credentials tied to protected entities.
-- Rapid Escalation Support — immediate analyst notification and operational guidance when high-severity findings emerge.
-- Reputation Analysis — structured assessment of reputational exposure across digital, media, and community environments.
-- Intelligence Reporting — decision-ready executive briefs and evidence-based analyst reports with sourcing and recommended action.
-- Penetration Testing — in-depth security testing across applications, networks, cloud environments, infrastructure, and systems to identify and validate exploitable vulnerabilities.
-- Red Team Simulation — realistic adversary simulations testing an organization's ability to detect, contain, and respond to advanced attacks.
-- Extended Infrastructure Testing — testing beyond core production environments, including corporate networks, external infrastructure, third-party exposure, and physical attack surfaces.
-- Face Recognition — advanced face recognition and identification for security and investigative use cases, including analysis of camera footage.
-- Security Posture Assessment — comprehensive assessment of cloud, network, endpoint, identity, and application security with prioritized findings and actionable recommendations.
-- Team Enablement & Training — hands-on training and knowledge transfer to strengthen internal security capabilities and operational readiness.
+**Expanded intelligence, cyber, monitoring, and operational capability domains** (source: Materials for Guy Landing Page), presented exclusively as P32 capabilities and grouped, on-site, into three named clusters that mirror how the work actually runs (`app/components/Capabilities.tsx`):
+
+- **Digital Intelligence & Monitoring** — watching what the public, the press, and hostile actors see: Multi-Platform Social Media Monitoring (continuous collection across TikTok, Facebook, X/Twitter, Instagram, YouTube, and Reddit, in every relevant language), Executive Protective Monitoring, Impersonation Detection, Narrative & Sentiment Tracking, Reputation Analysis.
+- **Threat & Operational Intelligence** — seeing threats and movement risk before they materialize: Travel & Event Intelligence, Threat Actor Profiling, Dark Web & Leaks, Rapid Escalation Support, Intelligence Reporting.
+- **Cyber & Security Testing** — testing the architecture the way an adversary would: Penetration Testing, Red Team Simulation, Extended Infrastructure Testing, Security Posture Assessment, Face Recognition, Team Enablement & Training.
+
+This expanded intelligence section is a major full-width part of the site immediately after the core pillars — not a small add-on — using progressive per-row disclosure and, for the social-media row, real recognizable platform marks rather than a generic SaaS card grid.
 
 **Constraints:**
 
@@ -98,7 +91,7 @@ Engagement model: P32 works with a limited number of principals and organization
 - Logo: real client-supplied assets — the "P32" wordmark and a four-point star/spark mark (matching the source PDF header) — inlined as `app/components/P32Mark.tsx` (`P32Wordmark`, `P32Star`), sourced from `public/brand/*-source.svg`. The star mark also serves as the site favicon (`app/icon.svg`).
 - "Licensed and supervised by the Israeli Ministry of Defense" is stated prominently in source material and is a binding factual claim to preserve.
 - Founder: Guy Farache, Co-Founder — name may be used; direct contact details are restricted per Capabilities and Constraints.
-- **Visual direction (binding, overrides generic skill defaults on conflict):** premium, controlled, discreet, intelligence-led, technologically advanced, operationally credible, slightly more combat-forward than a conventional corporate security site. Predominantly black-and-white visual system with restrained pale-blue accents. Sophisticated visual references: executive protection, suits and close-protection teams, intelligence operations, computers and secure networks, satellites and global surveillance, digital threat monitoring, command centers, global movement and asset protection. Explicitly avoid: generic cybersecurity visuals, neon hacker clichés, excessive blue gradients, sci-fi interfaces, military cosplay, aggressive red accents, video-game aesthetic.
+- **Visual direction (binding, overrides generic skill defaults on conflict):** premium, controlled, discreet, intelligence-led, technologically advanced, operationally credible, slightly more combat-forward than a conventional corporate security site. Predominantly black-and-white visual system with restrained pale-blue accents, brought back slightly stronger on client review — in diagram/network lines, hover and active states, technical annotations, section transitions, image overlays, and icons/data markers — while black-and-white stays dominant. Sophisticated visual references: executive protection (suits, earpieces, discreet communication, arrival/departure movement, vehicle and venue transitions, back/profile/low-angle perspectives — never staged smiling stock-photo poses), combat/soldier and elite-operator imagery for team/credibility narrative (cinematic, black-and-white with selective pale-blue overlay, focus on movement/equipment/silhouettes/readiness rather than faces or a recruitment-page feel), intelligence and technology visuals (secure systems, satellite imagery, global movement, social-media monitoring, command environments — never hooded-hacker clichés, neon cyber imagery, or fake sci-fi dashboards), and protective-canine operational imagery. Explicitly avoid: generic cybersecurity visuals, neon hacker clichés, excessive blue gradients, sci-fi interfaces, military cosplay, aggressive red accents, video-game aesthetic.
 - Design should avoid placing everything inside cards; favor strong typography, disciplined spacing, sharp hierarchy, large-scale imagery, subtle data/intelligence overlays, controlled motion, and meaningful interactive moments.
 - **Tone:** concise, intelligent, confident, controlled. Avoid inflated marketing language, empty security slogans, fearmongering, and generic AI-style copy.
 - Anchor line to use where it earns its place: "Security is not a service. It is an infrastructure."
@@ -108,17 +101,17 @@ Engagement model: P32 works with a limited number of principals and organization
   - **JetBrains Mono** — labels, metadata, capability names, coordinates, technical details, and intelligence-style annotations only. A controlled technical accent, not for long paragraphs or overuse.
   - Overall feel: premium, precise, editorial, intelligence-led.
 - **Experience direction (confirmed):** cinematic and high-end but restrained and credible. Favor large-scale visual moments over small image cards. Build a coherent visual language around intelligence networks, global exposure, surveillance, executive movement, and layered protection. Avoid excessive cards, pills, floating glass panels, gradients, glowing effects, decorative dashboards, and generic security iconography as the primary visual language. Motion must communicate scanning, connection, tracking, coordination, and control — never decoration for its own sake — and must respect `prefers-reduced-motion`.
-- Keep the internal capability grouping "P9" (from Materials for Guy Landing Page.docx) strictly internal — never present it as a visitor-facing service or category name.
+- All capabilities are presented exclusively as P32 capabilities — no internal source labels or codenames anywhere in visitor-facing copy, labels, comments, metadata, alt text, or content objects.
 
 ## Evidence on Hand
 
 - Two source documents are the sole factual basis for this build:
   - `Security Architecture for Ultra-High-Net-Worth (1) (1).pdf` — positioning, audience, four core service pillars, differentiators, credentials, licensing, team background, engagement model.
-  - `Materials for Guy Landing Page.docx` — sixteen expanded intelligence, cyber, monitoring, penetration-testing, and operational capability domains (internally labeled "P9").
+  - `Materials for Guy Landing Page.docx` — sixteen expanded intelligence, cyber, monitoring, penetration-testing, and operational capability domains.
 - No testimonials, client names, case studies, press mentions, or quantitative metrics were supplied. Future work must not fabricate any of these.
 - Contact details (guy@p32.ltd, 786-979-1402) exist in source material but are withheld from publication pending explicit user approval; the CTA needs an alternate confidential-inquiry path.
 - No client-supplied photography of the client's own operations (Miami/New York bases, personnel, facilities) has been provided. That gap is filled with a deliberate drawn placeholder (`GlobalReach.tsx`) rather than a stock photo or broken URL, documented in `public/imagery/README.md`.
-- One real photographic asset is in use: NASA's public-domain "Blue Marble" Earth imagery, cropped/treated and stored locally at `public/imagery/earth-atlantic-corridor.jpg`, sourced and licensed per `public/imagery/README.md`. Any other imagery must align to the visual direction above without implying capabilities or claims beyond what's documented.
+- Real photographic assets in use: NASA's public-domain "Blue Marble"/"Black Marble" Earth imagery (`public/imagery/`), and a client-approved selection from a Google Drive folder of stock/editorial photography, downloaded locally, renamed semantically, cropped, and lightly treated under `public/images/p32/` — executive-protection movement (arrival/departure, earpiece detail), protective-canine handler and team-operation imagery, and an operator/night-vision editorial plate used in Credibility. Sourcing, processing, and the images held in reserve (not placed) are documented in `public/images/p32/README.md`. Any other imagery must align to the visual direction above without implying capabilities or claims beyond what's documented.
 - Key Grotesk font files are not yet available; the project is scaffolded to accept them under `/public/fonts` (see Brand Commitments) rather than substituting a different intended display face long-term.
 
 ## Product Principles

@@ -21,7 +21,8 @@ type Edge = {
 const NODES: Node[] = [
   { id: "jurisdictions", label: "JURISDICTIONS", ref: "A1", x: 300, y: 220 },
   { id: "corporate", label: "CORPORATE STRUCTURES", ref: "A2", x: 620, y: 140 },
-  { id: "digital", label: "DIGITAL EXPOSURE", ref: "A3", x: 940, y: 280 },
+  { id: "estate", label: "REAL ESTATE", ref: "A3", x: 780, y: 200 },
+  { id: "digital", label: "DIGITAL EXPOSURE", ref: "A4", x: 940, y: 280 },
   { id: "family", label: "FAMILY", ref: "B1", x: 300, y: 660 },
   { id: "advisors", label: "ADVISORS", ref: "B2", x: 560, y: 740 },
   { id: "vendors", label: "VENDORS", ref: "B3", x: 820, y: 700 },
@@ -32,7 +33,7 @@ const HUB: Node = { id: "p32", label: "P32", x: 600, y: 450 };
 
 const FRAGMENTED_EDGES: Edge[] = [
   { from: "jurisdictions", to: "corporate", style: "solid" },
-  { from: "corporate", to: "digital", style: "dashed" },
+  { from: "corporate", to: "estate", style: "dashed" },
   { from: "digital", to: "public", style: "dashed" },
   { from: "family", to: "advisors", style: "solid" },
   { from: "advisors", to: "vendors", style: "dashed" },
@@ -131,7 +132,7 @@ export function EcosystemDiagram({
       role="img"
       aria-label={
         variant === "fragmented"
-          ? "Diagram of a principal's disconnected risk surface: jurisdictions, corporate structures, digital exposure, family, advisors, vendors, and public visibility, loosely and inconsistently linked."
+          ? "Diagram of a principal's disconnected risk surface: jurisdictions, corporate structures, real estate, digital exposure, family, advisors, vendors, and public visibility, loosely and inconsistently linked."
           : "Diagram of the same risk surface unified under a single P32 security architecture, with every layer connected through one center."
       }
       preserveAspectRatio={`xMidYMid ${fit}`}

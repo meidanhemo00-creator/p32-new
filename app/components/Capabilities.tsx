@@ -24,7 +24,7 @@ interface CapabilityGroupData {
 
 const GROUPS: CapabilityGroupData[] = [
   {
-    title: "Digital & Reputational Monitoring",
+    title: "Digital Intelligence & Monitoring",
     note: "Watching what the public, the press, and hostile actors see.",
     Icon: SecureNetworkIcon,
     items: [
@@ -34,20 +34,20 @@ const GROUPS: CapabilityGroupData[] = [
         platforms: true,
       },
       {
+        name: "Executive Protective Monitoring",
+        desc: "Dedicated monitoring of threats, targeting, and hostile attention directed at protected individuals.",
+      },
+      {
+        name: "Impersonation Detection",
+        desc: "Identification of fake profiles, spoofed accounts, and identity misuse across digital platforms and domains.",
+      },
+      {
         name: "Narrative & Sentiment Tracking",
         desc: "Analysis of harmful narratives surfacing across social platforms and media, tracking sentiment shifts before they escalate.",
       },
       {
         name: "Reputation Analysis",
         desc: "Structured assessment of reputational exposure across digital, media, and community environments.",
-      },
-      {
-        name: "Dark Web & Leaks",
-        desc: "Monitoring of closed communities, breach data, and leaked credentials tied to protected entities.",
-      },
-      {
-        name: "Impersonation Detection",
-        desc: "Identification of fake profiles, spoofed accounts, and identity misuse across digital platforms and domains.",
       },
     ],
   },
@@ -57,16 +57,16 @@ const GROUPS: CapabilityGroupData[] = [
     Icon: ThreatMonitoringIcon,
     items: [
       {
-        name: "Executive Protective Monitoring",
-        desc: "Dedicated monitoring of threats, targeting, and hostile attention directed at protected individuals.",
+        name: "Travel & Event Intelligence",
+        desc: "Pre-travel and pre-event intelligence on routes, venues, local narratives, security risks, and on-ground threat signals.",
       },
       {
         name: "Threat Actor Profiling",
         desc: "In-depth profiling of hostile actors - identity, background, affiliations, capability, and intent - from a single starting indicator.",
       },
       {
-        name: "Travel & Event Intelligence",
-        desc: "Pre-travel and pre-event intelligence on routes, venues, local narratives, security risks, and on-ground threat signals.",
+        name: "Dark Web & Leaks",
+        desc: "Monitoring of closed communities, breach data, and leaked credentials tied to protected entities.",
       },
       {
         name: "Rapid Escalation Support",
@@ -79,7 +79,7 @@ const GROUPS: CapabilityGroupData[] = [
     ],
   },
   {
-    title: "Offensive Security & Readiness",
+    title: "Cyber & Security Testing",
     note: "Testing the architecture the way an adversary would.",
     Icon: PenetrationTestIcon,
     items: [

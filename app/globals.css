@@ -28,6 +28,8 @@
   /* Hairlines */
   --hairline-dark: rgba(245, 245, 245, 0.14);
   --hairline-light: rgba(10, 10, 10, 0.16);
+  --hairline-dark-blue: rgba(127, 168, 196, 0.22);
+  --hairline-light-blue: rgba(63, 96, 120, 0.22);
 
   /* Type */
   --font-display: "Key Grotesk", var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
@@ -57,6 +59,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -79,6 +82,7 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 /* Tabular, precise numerals wherever coordinates / metrics appear */

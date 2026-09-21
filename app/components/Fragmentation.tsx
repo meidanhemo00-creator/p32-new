@@ -8,7 +8,8 @@ import { Grain } from "./Grain";
 const LAYERS = [
   { ref: "A1", label: "Multiple jurisdictions" },
   { ref: "A2", label: "Corporate structures and investments" },
-  { ref: "A3", label: "Public visibility and private exposure" },
+  { ref: "A3", label: "Real estate portfolios" },
+  { ref: "A4", label: "Public visibility and private exposure" },
   { ref: "B1", label: "Family members, advisors, employees, and third parties" },
 ];
 
@@ -56,10 +57,13 @@ export function Fragmentation() {
       <Grain />
       <div ref={rootRef} className="relative mx-auto max-w-[1100px]">
         <h2 className="font-display max-w-3xl text-[2rem] font-medium leading-[1.15] tracking-[-0.01em] text-white sm:text-[2.75rem]">
+          A Different Category of Risk
+        </h2>
+        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-white">
           At a certain level, security is no longer about protection. It is
           about control.
-        </h2>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--white-soft)" }}>
+        </p>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--white-soft)" }}>
           You are not managing a single environment - you are operating
           across:
         </p>

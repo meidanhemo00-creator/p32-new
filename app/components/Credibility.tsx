@@ -35,15 +35,35 @@ export function Credibility() {
     const rows = root.querySelectorAll<HTMLElement>("[data-registry-row]");
     const seal = root.querySelector<HTMLElement>("[data-seal]");
     const plate = root.querySelector<HTMLElement>("[data-plate]");
+    const elite = root.querySelector<HTMLElement>("[data-elite]");
+    const team = root.querySelector<HTMLElement>("[data-team]");
 
     if (reducedMotion) {
-      gsap.set([rows, seal, plate], { clearProps: "all" });
+      gsap.set([rows, seal, plate, elite, team], { clearProps: "all" });
       return;
     }
 
     gsap.set(rows, { opacity: 0, x: -8 });
     gsap.set(seal, { opacity: 0, scale: 0.85 });
     gsap.set(plate, { opacity: 0 });
+    gsap.set(elite, { opacity: 0, scale: 1.06 });
+    gsap.set(team, { opacity: 0, scale: 1.06 });
+
+    gsap.to(team, {
+      opacity: 1,
+      scale: 1,
+      duration: 1.3,
+      ease: "power2.out",
+      scrollTrigger: { trigger: team, start: "top 85%", once: true },
+    });
+
+    gsap.to(elite, {
+      opacity: 1,
+      scale: 1,
+      duration: 1.4,
+      ease: "power2.out",
+      scrollTrigger: { trigger: elite, start: "top 80%", once: true },
+    });
 
     const tl = gsap.timeline({
       scrollTrigger: { trigger: root, start: "top 70%", once: true },
@@ -77,7 +97,37 @@ export function Credibility() {
           What makes P32 different
         </h2>
 
-        <div className="mt-12 grid gap-px sm:grid-cols-2 lg:grid-cols-4" style={{ background: "var(--hairline-light)" }}>
+        <div
+          data-team
+          className="relative mt-10 h-[50vh] min-h-[340px] overflow-hidden"
+        >
+          <div
+            className="absolute inset-0 bg-cover"
+            style={{ backgroundImage: "url(/images/p32/team-approach-movement.jpg)", backgroundPosition: "50% 40%" }}
+            role="img"
+            aria-label="An operational team moving together toward a structure, tactical gear and equipment, backs to camera."
+          />
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(0deg, rgba(9,9,9,0.85) 0%, rgba(9,9,9,0.1) 45%, rgba(9,9,9,0.4) 100%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{ background: "linear-gradient(135deg, rgba(127,168,196,0.14) 0%, transparent 50%)" }}
+          />
+          <Grain />
+          <p
+            className="absolute bottom-5 left-5 font-mono text-[0.7rem] tracking-[0.1em] sm:bottom-6 sm:left-6"
+            style={{ color: "var(--line-bright)" }}
+          >
+            OPERATIONAL TEAM
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-px sm:grid-cols-2 lg:grid-cols-4" style={{ background: "var(--hairline-light-blue)" }}>
           {DIFFERENTIATORS.map((d) => (
             <div key={d.term} className="bg-paper p-6">
               <p className="text-base font-medium">{d.term}</p>
@@ -88,7 +138,40 @@ export function Credibility() {
           ))}
         </div>
 
-        <div className="mt-20 grid gap-12 lg:grid-cols-[1fr_1.2fr]">
+        <div
+          data-elite
+          className="relative mt-16 h-[55vh] min-h-[380px] overflow-hidden"
+        >
+          <div
+            className="absolute inset-0 bg-cover"
+            style={{ backgroundImage: "url(/images/p32/operator-nvg-silhouette.jpg)", backgroundPosition: "50% 25%" }}
+            role="img"
+            aria-label="A P32 operator in tactical gear and night-vision equipment, low-angle silhouette, standing watch."
+          />
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(0deg, rgba(9,9,9,0.9) 0%, rgba(9,9,9,0.15) 45%, rgba(9,9,9,0.5) 100%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{ background: "linear-gradient(120deg, rgba(127,168,196,0.14) 0%, transparent 50%)" }}
+          />
+          <Grain />
+          <div className="absolute inset-x-5 bottom-6 sm:inset-x-8 sm:bottom-8">
+            <p className="font-mono text-xs tracking-[0.14em]" style={{ color: "var(--line-bright)" }}>
+              FORMER SENIOR OFFICERS
+            </p>
+            <p className="mt-2 max-w-md text-lg font-medium leading-snug text-white sm:text-xl">
+              Knesset Guard, Shin Bet, Military Intelligence (Aman), and
+              special operations forces.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <div>
             <p className="text-lg leading-relaxed" style={{ color: "var(--black-soft)" }}>
               P32 is an Israeli intelligence and security firm operating under
@@ -159,7 +242,7 @@ export function Credibility() {
               backgroundPosition: "78% 60%",
             }}
             role="img"
-            aria-label="Satellite view of city lights across the Eastern Mediterranean at night — NASA Black Marble imagery, public domain."
+            aria-label="Satellite view of city lights across the Eastern Mediterranean at night - NASA Black Marble imagery, public domain."
           />
           <div
             className="pointer-events-none absolute inset-0"
@@ -173,7 +256,7 @@ export function Credibility() {
             className="absolute bottom-5 left-5 font-mono text-[0.7rem] tracking-[0.1em] sm:bottom-6 sm:left-6"
             style={{ color: "var(--line-bright)" }}
           >
-            REGION OF ORIGIN — EASTERN MEDITERRANEAN
+            REGION OF ORIGIN - EASTERN MEDITERRANEAN
           </p>
         </div>
       </div>

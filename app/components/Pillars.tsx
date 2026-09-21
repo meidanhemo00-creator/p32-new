@@ -108,7 +108,7 @@ export function Pillars() {
           THE SAME ECOSYSTEM. ONE ARCHITECTURE.
         </p>
 
-        <div ref={rootRef} className="mt-20 grid gap-px sm:grid-cols-2" style={{ background: "var(--hairline-light)" }}>
+        <div ref={rootRef} className="mt-20 grid gap-px sm:grid-cols-2" style={{ background: "var(--hairline-light-blue)" }}>
           {PILLARS.map((pillar) => (
             <div key={pillar.zone} data-zone className="bg-paper p-8 sm:p-10">
               <div className="flex items-baseline gap-4">
