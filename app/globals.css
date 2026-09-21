@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+:root {
+  /* Ground — true achromatic black-and-white; the accent below carries every drop of color */
+  --ink: #090909;
+  --ink-2: #0f0f0f;
+  --ink-3: #181818;
+  --paper: #f0f0f0;
+  --paper-2: #e5e5e5;
+
+  /* Ink on ground */
+  --white: #f5f5f5;
+  --white-soft: rgba(245, 245, 245, 0.62);
+  --white-faint: rgba(245, 245, 245, 0.38);
+  --black: #0a0a0a;
+  --black-soft: rgba(10, 10, 10, 0.62);
+  --black-faint: rgba(10, 10, 10, 0.4);
+
+  /* Blueprint accent — restrained pale blue, line work only */
+  --line: #7fa8c4;
+  --line-bright: #a9cbe0;
+  --line-dim-on-dark: rgba(127, 168, 196, 0.28);
+  --line-dim-on-paper: rgba(63, 96, 120, 0.28);
+  /* Same accent hue, darkened to clear 4.5:1 on paper for readable labels */
+  --line-on-paper: #3a5c78;
+
+  /* Hairlines */
+  --hairline-dark: rgba(245, 245, 245, 0.14);
+  --hairline-light: rgba(10, 10, 10, 0.16);
+
+  /* Type */
+  --font-display: "Key Grotesk", var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-white: var(--white);
+  --color-black: var(--black);
+  --color-line: var(--line);
+  --color-line-bright: var(--line-bright);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tabular, precise numerals wherever coordinates / metrics appear */
+.font-mono,
+[data-numeric] {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+/* Selection */
+::selection {
+  background: var(--line);
+  color: var(--ink);
+}
+
+/* Scrollbar (webkit) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(127, 168, 196, 0.35);
+  border: 2px solid var(--ink);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--line);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(127, 168, 196, 0.35) var(--ink);
+}
+
+/* Focus ring — precise, not the browser default, not a soft glow */
+:focus-visible {
+  outline: 1.5px solid var(--line-bright);
+  outline-offset: 3px;
+}
+
+a {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}

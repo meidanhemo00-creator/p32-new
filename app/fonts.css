@@ -1,0 +1,37 @@
+/*
+  Key Grotesk — display typeface (headlines, section titles, high-impact
+  statements). Licensed files are not present yet; see public/fonts/README.md.
+  These @font-face rules resolve to nothing until the files land, at which
+  point the fallback stack below is dropped automatically.
+*/
+@font-face {
+  font-family: "Key Grotesk";
+  src: url("/fonts/key-grotesk/KeyGrotesk-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Key Grotesk";
+  src: url("/fonts/key-grotesk/KeyGrotesk-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Key Grotesk";
+  src: url("/fonts/key-grotesk/KeyGrotesk-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Key Grotesk";
+  src: url("/fonts/key-grotesk/KeyGrotesk-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
