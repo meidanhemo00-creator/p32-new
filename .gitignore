@@ -11,6 +11,9 @@
 # vercel
 /.vercel
 
+# netlify
+/.netlify
+
 # typescript
 *.tsbuildinfo
 

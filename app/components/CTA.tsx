@@ -87,10 +87,26 @@ export function CTA() {
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed" style={{ color: "var(--white-soft)" }}>
             Engagements are limited, confidential, and begin with a direct
-            conversation. No phone number or email address for this inquiry
-            is published - submit the form and a member of the P32 team will
-            reach you through a secure channel.
+            conversation. Submit the form below, or reach the team directly.
           </p>
+
+          <div className="mt-8 flex flex-col gap-1.5">
+            <span className="font-mono text-xs tracking-[0.08em]" style={{ color: "var(--line)" }}>
+              DIRECT CONTACT
+            </span>
+            <a
+              href="mailto:Guy@p32.Ltd"
+              className="text-base text-white transition-colors hover:text-[var(--line-bright)]"
+            >
+              Guy@p32.Ltd
+            </a>
+            <a
+              href="mailto:Meredith@p32.Ltd"
+              className="text-base text-white transition-colors hover:text-[var(--line-bright)]"
+            >
+              Meredith@p32.Ltd
+            </a>
+          </div>
 
           <svg width="220" height="64" viewBox="0 0 220 64" className="mt-14" aria-hidden>
             <path
