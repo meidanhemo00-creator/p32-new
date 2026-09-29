@@ -199,7 +199,7 @@ function CapabilityGroup({
 
 export function Capabilities() {
   return (
-    <section className="relative bg-ink px-6 py-28 sm:px-10 sm:py-36">
+    <section id="capabilities" className="relative bg-ink px-6 py-28 sm:px-10 sm:py-36">
       <Grain />
       <div className="relative mx-auto max-w-[1200px]">
         <h2 className="font-display max-w-3xl text-[2rem] font-medium leading-[1.15] tracking-[-0.01em] text-white sm:text-[2.75rem]">

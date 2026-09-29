@@ -89,8 +89,9 @@ export function Pillars() {
       <Grain />
       <div className="relative mx-auto max-w-[1200px]">
         <h2 className="font-display max-w-3xl text-[2rem] font-medium leading-[1.15] tracking-[-0.01em] sm:text-[2.75rem]">
-          We do not provide fragmented services. We deliver full-spectrum
-          control across your entire environment.
+          We do not provide fragmented services.
+          <br />
+          We deliver full-spectrum control across your entire environment.
         </h2>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--black-soft)" }}>
           Project 32 (P32) designs and implements integrated security

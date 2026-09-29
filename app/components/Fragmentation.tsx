@@ -74,7 +74,7 @@ export function Fragmentation() {
             <div
               key={layer.ref}
               data-row
-              className="relative grid grid-cols-[3rem_1fr] items-baseline gap-4 border px-5 py-5 sm:grid-cols-[4rem_1fr] sm:px-7"
+              className="relative grid grid-cols-[3rem_1fr] items-baseline gap-3 border px-4 py-3 sm:grid-cols-[4rem_1fr] sm:px-5 sm:py-4"
               style={{
                 marginTop: i === 0 ? 0 : "-15px",
                 marginLeft: `${i * 22}px`,
@@ -89,7 +89,7 @@ export function Fragmentation() {
                 <span className="text-lg text-white sm:text-xl">{layer.label}</span>
                 <div
                   data-bar
-                  className="mt-3 h-px w-full"
+                  className="mt-2 h-px w-full"
                   style={{ background: "var(--line)" }}
                 />
               </div>

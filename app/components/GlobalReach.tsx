@@ -57,7 +57,7 @@ export function GlobalReach() {
   }, [reducedMotion]);
 
   return (
-    <section ref={rootRef} className="relative h-[70svh] min-h-[480px] w-full overflow-hidden bg-ink">
+    <section id="reach" ref={rootRef} className="relative h-[70svh] min-h-[480px] w-full overflow-hidden bg-ink">
       <Grain />
       <div
         className="pointer-events-none absolute inset-0 z-10"

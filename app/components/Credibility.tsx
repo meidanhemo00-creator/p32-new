@@ -90,7 +90,7 @@ export function Credibility() {
   }, [reducedMotion]);
 
   return (
-    <section className="relative bg-paper px-6 py-28 text-black sm:px-10 sm:py-36">
+    <section id="difference" className="relative bg-paper px-6 py-28 text-black sm:px-10 sm:py-36">
       <Grain />
       <div ref={rootRef} className="relative mx-auto max-w-[1200px]">
         <h2 className="font-display max-w-3xl text-[2rem] font-medium leading-[1.15] tracking-[-0.01em] sm:text-[2.75rem]">
