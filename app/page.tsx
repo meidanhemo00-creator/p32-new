@@ -1,6 +1,7 @@
 import { Nav } from "./components/Nav";
 import { Cover } from "./components/Cover";
 import { Hero } from "./components/Hero";
+import { QuickNav } from "./components/QuickNav";
 import { Fragmentation } from "./components/Fragmentation";
 import { Pivot } from "./components/Pivot";
 import { ExecutiveProtection } from "./components/ExecutiveProtection";
@@ -21,6 +22,7 @@ export default function Home() {
       <main>
         <Cover />
         <Hero />
+        <QuickNav />
         <Fragmentation />
         <Pivot />
         <ExecutiveProtection />

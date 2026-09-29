@@ -18,6 +18,7 @@ export function Hero() {
     const lines = root.querySelectorAll<HTMLElement>("[data-wipe]");
     const rest = root.querySelectorAll<HTMLElement>("[data-fade]");
     const bg = bgRef.current;
+    let safetyTimer: number | undefined;
 
     const ctx = gsap.context(() => {
       if (reducedMotion) {
@@ -29,7 +30,7 @@ export function Hero() {
       gsap.set(lines, { clipPath: "inset(0 101% 0 0)" });
       gsap.set(rest, { opacity: 0, y: 10, filter: "blur(6px)" });
 
-      gsap
+      const tl = gsap
         .timeline({ delay: 0.5 })
         .to(lines, {
           clipPath: "inset(0 0% 0 0)",
@@ -43,13 +44,27 @@ export function Hero() {
           "-=0.3",
         );
 
+      // Safety net: some mobile browsers can interrupt or silently drop a
+      // rAF-driven entrance tween on first paint. If the reveal hasn't
+      // finished a few seconds after it should have, force the statement
+      // fully visible rather than leaving it clipped or transparent.
+      safetyTimer = window.setTimeout(() => {
+        if (tl.progress() < 1) {
+          gsap.set(lines, { clipPath: "inset(0 0% 0 0)" });
+          gsap.set(rest, { opacity: 1, y: 0, filter: "blur(0px)" });
+        }
+      }, 3000);
+
       // Very slow, near-imperceptible drift on the satellite image - reads as
       // a live feed holding its position, not a "Ken Burns" slideshow effect.
       gsap.set(bg, { scale: 1.06 });
       gsap.to(bg, { scale: 1.12, duration: 28, ease: "sine.inOut", repeat: -1, yoyo: true });
     }, root);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      if (safetyTimer) window.clearTimeout(safetyTimer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reducedMotion]);
 

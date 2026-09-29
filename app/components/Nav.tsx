@@ -2,14 +2,7 @@
 
 import { useState } from "react";
 import { P32Star, P32Wordmark } from "./P32Mark";
-
-const LINKS = [
-  { href: "#architecture", label: "ARCHITECTURE" },
-  { href: "#capabilities", label: "CAPABILITIES" },
-  { href: "#difference", label: "WHY P32" },
-  { href: "#reach", label: "GLOBAL REACH" },
-  { href: "#inquiry", label: "INQUIRY" },
-];
+import { NAV_LINKS as LINKS } from "@/app/lib/navLinks";
 
 /**
  * Always carries its own dark backdrop rather than starting transparent -
