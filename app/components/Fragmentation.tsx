@@ -56,8 +56,9 @@ export function Fragmentation() {
     <section id="architecture" className="relative bg-ink px-6 py-28 sm:px-10 sm:py-36">
       <Grain />
       <div ref={rootRef} className="relative mx-auto max-w-[1100px]">
-        <h2 className="font-display max-w-3xl text-[2rem] font-medium leading-[1.15] tracking-[-0.01em] text-white sm:text-[2.75rem]">
-          A Different Category of Risk
+        <h2 className="font-display max-w-3xl text-[1.85rem] font-medium leading-[1.15] tracking-[-0.01em] text-white sm:text-[2.75rem]">
+          A Different Category
+          <br className="sm:hidden" /> of Risk
         </h2>
         <p className="mt-6 max-w-2xl text-xl leading-relaxed text-white">
           At a certain level, security is no longer about protection. It is
