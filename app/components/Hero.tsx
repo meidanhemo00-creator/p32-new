@@ -42,31 +42,29 @@ export function Hero() {
   }, [reducedMotion]);
 
   return (
-    <section id="top" className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink">
+    <section id="top" className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-ink">
       <div className="absolute inset-0">
         <div className="opacity-45 sm:opacity-100">
           <HeroField />
         </div>
         <Grain />
-        {/* Mobile: diagram reads as quiet ambient texture, not content to parse - headline gets a clean, protected, solidly-scrimmed zone. */}
+        {/* Centered headline needs a protected zone regardless of where the
+            diagram's nodes land - dark at the center, easing out toward the
+            edges so the network stays visible as atmosphere around the text. */}
         <div
-          className="pointer-events-none absolute inset-0 sm:hidden"
+          className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(9,9,9,0.55) 0%, rgba(9,9,9,0.7) 38%, rgba(9,9,9,0.97) 100%)",
-          }}
-        />
-        <div
-          className="pointer-events-none absolute inset-0 hidden sm:block"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(9,9,9,0.3) 0%, rgba(9,9,9,0.5) 55%, rgba(9,9,9,0.96) 100%)",
+              "radial-gradient(ellipse 78% 68% at 50% 50%, rgba(9,9,9,0.95) 0%, rgba(9,9,9,0.68) 60%, rgba(9,9,9,0.24) 100%)",
           }}
         />
       </div>
 
-      <div ref={textRef} className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-14 pt-28 sm:px-10 sm:pb-24 sm:pt-40">
-        <h1 className="max-w-4xl font-display text-[2.1rem] font-medium leading-[1.12] tracking-[-0.02em] text-white sm:text-[3.5rem] sm:leading-[1.05] lg:text-[4.5rem]">
+      <div
+        ref={textRef}
+        className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 py-28 text-center sm:px-10"
+      >
+        <h1 className="mx-auto max-w-4xl font-display text-[2.35rem] font-medium leading-[1.1] tracking-[-0.02em] text-white sm:text-[4rem] sm:leading-[1.04] lg:text-[5.25rem]">
           <span data-wipe className="block">
             Security is not a service.
           </span>
@@ -74,14 +72,14 @@ export function Hero() {
             It is an infrastructure.
           </span>
         </h1>
-        <p data-fade className="mt-8 max-w-xl text-balance text-lg leading-relaxed" style={{ color: "var(--white-soft)" }}>
+        <p data-fade className="mx-auto mt-8 max-w-xl text-balance text-lg leading-relaxed" style={{ color: "var(--white-soft)" }}>
           Project 32 Ltd is licensed and supervised by the Israeli Ministry
           of Defense. P32 designs and operates a unified, intelligence-led
           security architecture across people, residences, travel, digital
           exposure, corporate structures, assets, infrastructure, and global
           operations.
         </p>
-        <div data-fade className="mt-10 flex flex-wrap items-center gap-6">
+        <div data-fade className="mt-10 flex flex-wrap items-center justify-center gap-6">
           <a
             href="#inquiry"
             className="border border-white/80 px-7 py-3.5 font-mono text-xs tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-ink"

@@ -14,17 +14,23 @@ const NODES: Node[] = [
   { id: "corporate", label: "CORPORATE STRUCTURES", ref: "A2", x: 560, y: 110, sx: 90, sy: -110, rot: 22 },
   { id: "estate", label: "REAL ESTATE", ref: "A3", x: 790, y: 175, sx: -80, sy: 100, rot: -14 },
   { id: "digital", label: "DIGITAL EXPOSURE", ref: "A4", x: 950, y: 220, sx: 130, sy: 60, rot: 26 },
+  { id: "social", label: "SOCIAL MEDIA", ref: "A5", x: 880, y: 130, sx: 60, sy: -100, rot: 15 },
   { id: "family", label: "FAMILY", ref: "B1", x: 250, y: 560, sx: -100, sy: 90, rot: 16 },
-  { id: "advisors", label: "ADVISORS", ref: "B2", x: 560, y: 640, sx: 70, sy: 110, rot: -20 },
-  { id: "vendors", label: "VENDORS", ref: "B3", x: 850, y: 590, sx: -90, sy: -80, rot: 18 },
-  { id: "public", label: "PUBLIC VISIBILITY", ref: "B4", x: 1140, y: 490, sx: 110, sy: -60, rot: -24 },
+  { id: "home", label: "HOME", ref: "B2", x: 420, y: 660, sx: -60, sy: 100, rot: -12 },
+  { id: "advisors", label: "ADVISORS", ref: "B3", x: 560, y: 640, sx: 70, sy: 110, rot: -20 },
+  { id: "office", label: "OFFICE", ref: "B4", x: 750, y: 670, sx: 90, sy: 90, rot: 14 },
+  { id: "vendors", label: "VENDORS", ref: "B5", x: 850, y: 590, sx: -90, sy: -80, rot: 18 },
+  { id: "public", label: "PUBLIC VISIBILITY", ref: "B6", x: 1140, y: 490, sx: 110, sy: -60, rot: -24 },
 ];
 
 const EDGES: [string, string][] = [
   ["jurisdictions", "corporate"],
   ["corporate", "estate"],
+  ["digital", "social"],
   ["digital", "public"],
+  ["family", "home"],
   ["family", "advisors"],
+  ["advisors", "office"],
   ["advisors", "vendors"],
 ];
 
@@ -205,7 +211,7 @@ export function HeroField() {
         className="absolute inset-0 h-full w-full"
         preserveAspectRatio="xMidYMid slice"
         role="img"
-        aria-label="Diagram of a principal's disconnected risk surface - jurisdictions, corporate structures, real estate, digital exposure, family, advisors, vendors, and public visibility - settling into a mapped, monitored network."
+        aria-label="Diagram of a principal's disconnected risk surface - jurisdictions, corporate structures, real estate, digital exposure, social media, family, home, advisors, office, vendors, and public visibility - settling into a mapped, monitored network."
       >
         <defs>
           <radialGradient id="hero-node-glow" cx="50%" cy="50%" r="50%">
@@ -233,7 +239,7 @@ export function HeroField() {
           })}
         </g>
 
-        {Array.from({ length: 3 }).map((_, i) => (
+        {Array.from({ length: 4 }).map((_, i) => (
           <circle key={i} data-pulse r="4" fill="var(--line-bright)" opacity="0" />
         ))}
 
