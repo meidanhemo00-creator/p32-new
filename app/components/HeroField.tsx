@@ -204,12 +204,14 @@ export function HeroField() {
         </svg>
       </div>
 
-      {/* Layer 1 — the network itself, mid parallax */}
+      {/* Layer 1 — the network itself, mid parallax. "meet" (not "slice") so
+          every node stays fully visible and legible at every aspect ratio
+          instead of being cropped off-frame on narrow or unusual viewports. */}
       <svg
         ref={diagramRef}
         viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
         className="absolute inset-0 h-full w-full"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMidYMid meet"
         role="img"
         aria-label="Diagram of a principal's disconnected risk surface - jurisdictions, corporate structures, real estate, digital exposure, social media, family, home, advisors, office, vendors, and public visibility - settling into a mapped, monitored network."
       >

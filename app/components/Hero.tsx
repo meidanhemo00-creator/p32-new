@@ -44,18 +44,29 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-ink">
       <div className="absolute inset-0">
-        <div className="opacity-45 sm:opacity-100">
+        {/* Real editorial photography as the primary ground - the network
+            diagram now reads as a technical overlay on top of it, not the
+            backdrop itself. */}
+        <div
+          className="absolute inset-0 bg-cover"
+          style={{ backgroundImage: "url(/images/p32/hero-team-arrival.jpg)", backgroundPosition: "38% 42%" }}
+          role="img"
+          aria-label="A close-protection team, backs to camera, in a rain-lit city street at night."
+        />
+        <div className="pointer-events-none absolute inset-0" style={{ background: "rgba(9,9,9,0.5)" }} />
+        <div className="opacity-70 mix-blend-screen sm:opacity-85">
           <HeroField />
         </div>
         <Grain />
         {/* Centered headline needs a protected zone regardless of where the
-            diagram's nodes land - dark at the center, easing out toward the
-            edges so the network stays visible as atmosphere around the text. */}
+            diagram's nodes or the photo's brighter areas land - dark at the
+            center, easing out toward the edges so both stay visible as
+            atmosphere around the text. */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 78% 68% at 50% 50%, rgba(9,9,9,0.95) 0%, rgba(9,9,9,0.68) 60%, rgba(9,9,9,0.24) 100%)",
+              "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(9,9,9,0.94) 0%, rgba(9,9,9,0.72) 55%, rgba(9,9,9,0.4) 100%)",
           }}
         />
       </div>
@@ -64,11 +75,14 @@ export function Hero() {
         ref={textRef}
         className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 py-28 text-center sm:px-10"
       >
-        <h1 className="mx-auto max-w-4xl font-display text-[2.35rem] font-medium leading-[1.1] tracking-[-0.02em] text-white sm:text-[4rem] sm:leading-[1.04] lg:text-[5.25rem]">
-          <span data-wipe className="block">
+        <h1
+          className="mx-auto max-w-4xl font-display font-medium leading-[1.15] tracking-[-0.02em] text-white"
+          style={{ fontSize: "clamp(1.7rem, 6.6vw, 5.25rem)" }}
+        >
+          <span data-wipe className="block whitespace-nowrap">
             Security is not a service.
           </span>
-          <span data-wipe className="block">
+          <span data-wipe className="block whitespace-nowrap">
             It is an infrastructure.
           </span>
         </h1>
