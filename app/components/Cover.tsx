@@ -4,15 +4,17 @@ import { useEffect, useRef } from "react";
 import { useGsap } from "@/app/lib/gsap";
 import { useReducedMotion } from "@/app/lib/useReducedMotion";
 import { P32Star, P32Wordmark } from "./P32Mark";
+import { Grain } from "./Grain";
 
 /**
- * The PDF's own title page, brought to a first screen — restrained
- * white/off-white, minimal black type, one pale-blue detail. Distinct from
- * the dark network-diagram Hero that follows: this is a document cover,
- * not a generic website hero.
+ * The PDF's own title page, brought to a first screen - a centered,
+ * cinematic opening statement over real satellite/terrain imagery,
+ * matching the Hero that follows rather than sitting apart from it as a
+ * separate light "document" moment.
  */
 export function Cover() {
   const rootRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
   const { gsap, ScrollTrigger } = useGsap();
 
@@ -21,22 +23,27 @@ export function Cover() {
     if (!root) return;
     const blocks = root.querySelectorAll<HTMLElement>("[data-reveal]");
     const rule = root.querySelector<HTMLElement>("[data-rule]");
+    const bg = bgRef.current;
 
     const ctx = gsap.context(() => {
       if (reducedMotion) {
         gsap.set([blocks, rule], { clearProps: "all" });
+        gsap.set(bg, { scale: 1 });
         return;
       }
 
       gsap.set(blocks, { opacity: 0, y: 14 });
       gsap.set(rule, { scaleX: 0, transformOrigin: "left center" });
+      gsap.set(bg, { scale: 1.06 });
 
       gsap
         .timeline({ delay: 0.2 })
         .to(blocks, { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: "power2.out" })
         .to(rule, { scaleX: 1, duration: 0.9, ease: "power3.inOut" }, "-=0.5");
 
-      // Quiet parallax exit as the reader scrolls into the dark Hero below.
+      gsap.to(bg, { scale: 1.12, duration: 30, ease: "sine.inOut", repeat: -1, yoyo: true });
+
+      // Quiet parallax exit as the reader scrolls into the Hero below.
       gsap.to(root, {
         yPercent: -8,
         opacity: 0.2,
@@ -52,51 +59,74 @@ export function Cover() {
   return (
     <section
       ref={rootRef}
-      className="relative flex min-h-[100svh] flex-col justify-between bg-paper px-6 pb-10 pt-24 text-black sm:px-10 sm:py-12"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-ink"
     >
-      <div data-reveal className="flex items-start justify-between gap-6">
+      <div className="absolute inset-0">
+        <div
+          ref={bgRef}
+          className="absolute inset-0 bg-cover"
+          style={{ backgroundImage: "url(/imagery/earth-atlantic-corridor.jpg)", backgroundPosition: "55% 50%" }}
+          role="img"
+          aria-label="Satellite view of the Earth and Atlantic corridor - NASA Blue Marble imagery, public domain."
+        />
+        <div className="pointer-events-none absolute inset-0" style={{ background: "rgba(9,9,9,0.78)" }} />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "linear-gradient(160deg, rgba(127,168,196,0.08) 0%, transparent 45%)" }}
+        />
+        <Grain />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 82% 72% at 50% 50%, rgba(9,9,9,0.9) 0%, rgba(9,9,9,0.68) 55%, rgba(9,9,9,0.4) 100%)",
+          }}
+        />
+      </div>
+
+      <div
+        data-reveal
+        className="absolute inset-x-6 top-24 z-10 flex items-start justify-between gap-6 sm:inset-x-10"
+      >
         <div className="flex items-center gap-2.5">
-          <P32Star className="h-5 w-5" style={{ color: "var(--line-on-paper)" }} />
-          <P32Wordmark className="h-4 w-auto text-black" />
+          <P32Star className="h-5 w-5" style={{ color: "var(--line)" }} />
+          <P32Wordmark className="h-4 w-auto text-white" />
         </div>
-        <p className="max-w-[13rem] text-right font-mono text-[0.65rem] leading-relaxed tracking-[0.08em] sm:max-w-none sm:text-xs">
+        <p className="max-w-[13rem] text-right font-mono text-[0.65rem] leading-relaxed tracking-[0.08em] text-white/70 sm:max-w-none sm:text-xs">
           LICENSED AND SUPERVISED BY THE ISRAELI MINISTRY OF DEFENSE
         </p>
       </div>
 
-      <div className="mx-auto w-full max-w-[1200px]">
-        <div data-reveal className="font-mono text-xs tracking-[0.1em] sm:text-sm">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col items-center px-6 py-28 text-center sm:px-10">
+        <div data-reveal className="font-mono text-xs tracking-[0.1em] text-white sm:text-sm">
           <p className="font-medium">PROJECT 32 LTD</p>
-          <p className="mt-1" style={{ color: "var(--black-soft)" }}>
-            INTELLIGENCE. SECURITY. PEACE OF MIND.
-          </p>
+          <p className="mt-1 text-white/70">INTELLIGENCE. SECURITY. PEACE OF MIND.</p>
         </div>
 
-        <div data-rule className="mt-8 h-px w-full sm:mt-10" style={{ background: "var(--line-on-paper)" }} />
+        <div data-rule className="mx-auto mt-8 h-px w-24 sm:mt-10" style={{ background: "var(--line)" }} />
 
         <h1
           data-reveal
-          className="font-display mt-8 text-[2.75rem] font-medium leading-[1.02] tracking-[-0.02em] sm:mt-10 sm:text-[5rem] lg:text-[6.5rem]"
+          className="mx-auto mt-8 font-display font-medium leading-[1.08] tracking-[-0.02em] text-white sm:mt-10"
+          style={{ fontSize: "clamp(1.65rem, 7vw, 6rem)" }}
         >
-          Security
-          <br />
-          Architecture
-          <br />
-          for Ultra-High-Net-Worth
+          <span className="block whitespace-nowrap">Security Architecture</span>
+          <span className="block whitespace-nowrap">for Ultra-High-Net-Worth</span>
         </h1>
 
-        <p data-reveal className="mt-6 max-w-xl text-lg leading-relaxed sm:text-xl" style={{ color: "var(--black-soft)" }}>
+        <p data-reveal className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/70 sm:text-xl">
           Individuals, Families, Corporations &amp; Global Assets
         </p>
       </div>
 
-      <div data-reveal className="flex items-end justify-between">
-        <span className="font-mono text-[0.65rem] tracking-[0.1em]" style={{ color: "var(--line-on-paper)" }}>
+      <div
+        data-reveal
+        className="absolute inset-x-6 bottom-6 z-10 flex items-end justify-between sm:inset-x-10"
+      >
+        <span className="font-mono text-[0.65rem] tracking-[0.1em]" style={{ color: "var(--line)" }}>
           SCROLL ↓
         </span>
-        <span className="font-mono text-[0.65rem] tracking-[0.1em]" style={{ color: "var(--black-faint)" }}>
-          DOC 01 · COVER
-        </span>
+        <span className="font-mono text-[0.65rem] tracking-[0.1em] text-white/40">DOC 01 · COVER</span>
       </div>
     </section>
   );

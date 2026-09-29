@@ -8,6 +8,7 @@ import { Grain } from "./Grain";
 
 export function Hero() {
   const textRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
   const { gsap } = useGsap();
 
@@ -16,15 +17,17 @@ export function Hero() {
     if (!root) return;
     const lines = root.querySelectorAll<HTMLElement>("[data-wipe]");
     const rest = root.querySelectorAll<HTMLElement>("[data-fade]");
+    const bg = bgRef.current;
 
     const ctx = gsap.context(() => {
       if (reducedMotion) {
         gsap.set(lines, { clipPath: "inset(0 0% 0 0)" });
-        gsap.set(rest, { opacity: 1, y: 0 });
+        gsap.set(rest, { opacity: 1, y: 0, filter: "blur(0px)" });
+        gsap.set(bg, { scale: 1 });
         return;
       }
       gsap.set(lines, { clipPath: "inset(0 101% 0 0)" });
-      gsap.set(rest, { opacity: 0, y: 10 });
+      gsap.set(rest, { opacity: 0, y: 10, filter: "blur(6px)" });
 
       gsap
         .timeline({ delay: 0.5 })
@@ -34,7 +37,16 @@ export function Hero() {
           stagger: 0.12,
           ease: "power3.inOut",
         })
-        .to(rest, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: "power2.out" }, "-=0.3");
+        .to(
+          rest,
+          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, stagger: 0.08, ease: "power2.out" },
+          "-=0.3",
+        );
+
+      // Very slow, near-imperceptible drift on the satellite image - reads as
+      // a live feed holding its position, not a "Ken Burns" slideshow effect.
+      gsap.set(bg, { scale: 1.06 });
+      gsap.to(bg, { scale: 1.12, duration: 28, ease: "sine.inOut", repeat: -1, yoyo: true });
     }, root);
 
     return () => ctx.revert();
@@ -44,29 +56,34 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-ink">
       <div className="absolute inset-0">
-        {/* Real editorial photography as the primary ground - the network
-            diagram now reads as a technical overlay on top of it, not the
-            backdrop itself. */}
+        {/* Satellite imagery as quiet atmosphere, not the subject - a real,
+            unmanipulated NASA night-lights plate standing in for "command
+            and control" without leaning on a staged security photo. */}
         <div
+          ref={bgRef}
           className="absolute inset-0 bg-cover"
-          style={{ backgroundImage: "url(/images/p32/hero-team-arrival.jpg)", backgroundPosition: "38% 42%" }}
+          style={{ backgroundImage: "url(/imagery/night-network-europe-mideast.jpg)", backgroundPosition: "50% 45%" }}
           role="img"
-          aria-label="A close-protection team, backs to camera, in a rain-lit city street at night."
+          aria-label="Satellite view of city lights across Europe and the Eastern Mediterranean at night - NASA Black Marble imagery, public domain."
         />
-        <div className="pointer-events-none absolute inset-0" style={{ background: "rgba(9,9,9,0.5)" }} />
-        <div className="opacity-70 mix-blend-screen sm:opacity-85">
+        <div className="pointer-events-none absolute inset-0" style={{ background: "rgba(9,9,9,0.72)" }} />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "linear-gradient(160deg, rgba(127,168,196,0.1) 0%, transparent 45%)" }}
+        />
+        <div className="opacity-80 mix-blend-screen sm:opacity-90">
           <HeroField />
         </div>
         <Grain />
         {/* Centered headline needs a protected zone regardless of where the
-            diagram's nodes or the photo's brighter areas land - dark at the
-            center, easing out toward the edges so both stay visible as
-            atmosphere around the text. */}
+            diagram's nodes or the photo's brighter city-light clusters land -
+            dark at the center, clearing toward the edges so the plate reads
+            as atmosphere framing the text, not competing with it. */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(9,9,9,0.94) 0%, rgba(9,9,9,0.72) 55%, rgba(9,9,9,0.4) 100%)",
+              "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(9,9,9,0.95) 0%, rgba(9,9,9,0.75) 55%, rgba(9,9,9,0.45) 100%)",
           }}
         />
       </div>
@@ -77,7 +94,7 @@ export function Hero() {
       >
         <h1
           className="mx-auto max-w-4xl font-display font-medium leading-[1.15] tracking-[-0.02em] text-white"
-          style={{ fontSize: "clamp(1.7rem, 6.6vw, 5.25rem)" }}
+          style={{ fontSize: "clamp(1.55rem, 6.6vw, 5.25rem)" }}
         >
           <span data-wipe className="block whitespace-nowrap">
             Security is not a service.
