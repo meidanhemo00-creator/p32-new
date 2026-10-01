@@ -39,3 +39,5 @@ yarn-error.log*
 # misc caches
 .cache
 .turbo
+.vercel
+.env*
