@@ -85,8 +85,8 @@ export function Cover() {
           <span className="block text-balance sm:whitespace-nowrap">Security Architecture</span>
         </h1>
 
-        <p data-reveal className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-black/60 sm:text-base">
-          For Individuals, Families, Corporations &amp; Global Assets
+        <p data-reveal className="mx-auto mt-6 max-w-4xl text-balance text-lg leading-relaxed text-black/60 sm:text-2xl">
+          For Individuals, Families, Communities, Corporations &amp; Global Assets
         </p>
       </div>
 

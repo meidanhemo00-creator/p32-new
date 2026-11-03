@@ -61,7 +61,7 @@ export function Canine() {
           <p data-text className="mt-6 max-w-md text-lg leading-relaxed" style={{ color: "var(--white-soft)" }}>
             Specialist training, integration, and operational use of
             protection dogs as part of layered personal, residential,
-            estate, and site-security programs.
+            community, and site-security programs.
           </p>
 
           <div data-inset className="mt-10 max-w-md overflow-hidden border" style={{ borderColor: "var(--hairline-dark)" }}>

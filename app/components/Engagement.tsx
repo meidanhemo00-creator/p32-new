@@ -65,7 +65,7 @@ export function Engagement() {
           data-heading
           className="font-display max-w-2xl text-[2.25rem] font-medium leading-[1.08] tracking-[-0.01em] sm:text-[3.25rem] lg:text-[3.75rem]"
         >
-          We work with a limited number of principals and organizations.
+          We work with a limited number of principals, communities, and organizations.
         </h2>
 
         <div className="mt-16 grid gap-px sm:grid-cols-3" style={{ background: "var(--hairline-light)" }}>

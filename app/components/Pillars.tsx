@@ -35,8 +35,8 @@ const PILLARS = [
     title: "Asset & Infrastructure Protection",
     Icon: InfrastructureIcon,
     items: [
-      "Multi-property and estate security architecture",
-      "Commercial asset and facility risk design",
+      "Residential, community, and institutional security architecture",
+      "Facility risk design - synagogues, schools, and community centers",
       "Global travel and movement security planning",
       "Secure logistics and operational movement",
     ],
@@ -47,7 +47,7 @@ const PILLARS = [
     Icon: SatelliteIcon,
     items: [
       "Strategic intelligence briefings",
-      "Reputation and exposure monitoring",
+      "Monitoring of antisemitic threats and extremist activity",
       "Threat identification before it materializes",
       "Ongoing risk visibility across all environments",
     ],
@@ -95,8 +95,8 @@ export function Pillars() {
         </h2>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--black-soft)" }}>
           Project 32 (P32) designs and implements integrated security
-          ecosystems for individuals and complex
-          organizations.
+          ecosystems for individuals, Jewish communities and
+          institutions, and complex organizations.
         </p>
 
         <div

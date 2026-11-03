@@ -141,7 +141,7 @@ export function CTA() {
             <form onSubmit={handleSubmit} noValidate>
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Full name" name="name" required autoComplete="name" />
-                <Field label="Organization / family office" name="organization" autoComplete="organization" />
+                <Field label="Organization / community" name="organization" autoComplete="organization" />
                 <Field label="Role" name="role" autoComplete="organization-title" />
                 <Field label="Email" name="email" type="email" required autoComplete="email" />
                 <Field label="Phone (optional)" name="phone" type="tel" autoComplete="tel" />
