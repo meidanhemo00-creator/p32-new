@@ -11,6 +11,7 @@ const INQUIRY_TYPES = [
   "Corporate & Organizational Security",
   "Asset & Infrastructure Protection",
   "Intelligence & Risk Oversight",
+  "Threat Briefing for Your Organization",
   "Community & Institutional Security",
   "Cyber Intelligence & Exposure",
   "Other / Not yet sure",
@@ -18,7 +19,7 @@ const INQUIRY_TYPES = [
 
 const INQUIRY_ENDPOINT = "https://formsubmit.co/ajax/Guy@p32.Ltd";
 
-type Status = "idle" | "submitting" | "submitted";
+type Status = "idle" | "submitting" | "submitted" | "mailto";
 
 export function CTA() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -67,17 +68,25 @@ export function CTA() {
     data.append("_subject", `Confidential inquiry - ${data.get("name")}`);
     data.append("_template", "table");
     data.append("_replyto", String(data.get("email")));
+    // If the service is slow or down, fall back to a pre-filled email so no
+    // inquiry is lost.
+    const body = ["name", "organization", "role", "email", "phone", "inquiryType", "message"]
+      .map((key) => `${key}: ${data.get(key) ?? ""}`)
+      .join("\n");
     try {
       const res = await fetch(INQUIRY_ENDPOINT, {
         method: "POST",
         headers: { Accept: "application/json" },
         body: data,
+        signal: AbortSignal.timeout(8000),
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("submitted");
     } catch {
-      setStatus("idle");
-      setError("The inquiry could not be sent. Please email Guy@p32.Ltd directly.");
+      window.location.href = `mailto:Guy@p32.Ltd?subject=${encodeURIComponent(
+        `Confidential inquiry - ${data.get("name")}`,
+      )}&body=${encodeURIComponent(body)}`;
+      setStatus("mailto");
     }
   }
 
@@ -103,8 +112,9 @@ export function CTA() {
             If it is not designed intentionally, it is already fragmented.
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed" style={{ color: "var(--white-soft)" }}>
-            Engagements are limited, confidential, and begin with a direct
-            conversation. Submit the form below, or reach the team directly.
+            Engagements are limited, confidential, and can begin with a threat
+            briefing for your organization. Submit the form below, or reach
+            the team directly.
           </p>
 
           <div className="mt-8 flex flex-col gap-1.5">
@@ -145,7 +155,15 @@ export function CTA() {
         </div>
 
         <div className="border p-6 sm:p-8" style={{ borderColor: "var(--hairline-dark)" }}>
-          {status === "submitted" ? (
+          {status === "mailto" ? (
+            <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
+              <p className="font-display text-xl font-medium text-white">One more step.</p>
+              <p className="mt-3 max-w-xs text-sm leading-relaxed" style={{ color: "var(--white-soft)" }}>
+                Your email app has opened with the inquiry ready to send. If it
+                did not, please write to Guy@p32.Ltd directly.
+              </p>
+            </div>
+          ) : status === "submitted" ? (
             <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
               <p className="font-display text-xl font-medium text-white">Inquiry received.</p>
               <p className="mt-3 max-w-xs text-sm leading-relaxed" style={{ color: "var(--white-soft)" }}>
