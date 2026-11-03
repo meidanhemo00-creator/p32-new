@@ -17,9 +17,7 @@ const INQUIRY_TYPES = [
   "Other / Not yet sure",
 ];
 
-const INQUIRY_ENDPOINT = "https://formsubmit.co/ajax/Guy@p32.Ltd";
-
-type Status = "idle" | "submitting" | "submitted" | "mailto";
+type Status = "idle" | "mailto";
 
 export function CTA() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -51,10 +49,9 @@ export function CTA() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reducedMotion]);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = event.currentTarget;
-    const data = new FormData(form);
+    const data = new FormData(event.currentTarget);
 
     if (!data.get("name") || !data.get("email") || !data.get("message")) {
       setError("Name, email, and a brief message are required.");
@@ -62,32 +59,22 @@ export function CTA() {
     }
 
     setError(null);
-    setStatus("submitting");
-    // Inquiries go straight to Guy's inbox via FormSubmit (no backend to run).
-    // The first submission sends Guy a one-time activation email.
-    data.append("_subject", `Confidential inquiry - ${data.get("name")}`);
-    data.append("_template", "table");
-    data.append("_replyto", String(data.get("email")));
-    // If the service is slow or down, fall back to a pre-filled email so no
-    // inquiry is lost.
-    const body = ["name", "organization", "role", "email", "phone", "inquiryType", "message"]
-      .map((key) => `${key}: ${data.get(key) ?? ""}`)
+    // Opens the visitor's email app with the inquiry addressed to Guy.
+    const body = [
+      ["Name", "name"],
+      ["Organization / community", "organization"],
+      ["Role", "role"],
+      ["Email", "email"],
+      ["Phone", "phone"],
+      ["Area of inquiry", "inquiryType"],
+    ]
+      .map(([label, key]) => `${label}: ${data.get(key) ?? ""}`)
+      .concat(["", String(data.get("message") ?? "")])
       .join("\n");
-    try {
-      const res = await fetch(INQUIRY_ENDPOINT, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
-        signal: AbortSignal.timeout(8000),
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      setStatus("submitted");
-    } catch {
-      window.location.href = `mailto:Guy@p32.Ltd?subject=${encodeURIComponent(
-        `Confidential inquiry - ${data.get("name")}`,
-      )}&body=${encodeURIComponent(body)}`;
-      setStatus("mailto");
-    }
+    window.location.href = `mailto:Guy@p32.Ltd?subject=${encodeURIComponent(
+      `Confidential inquiry - ${data.get("name")}`,
+    )}&body=${encodeURIComponent(body)}`;
+    setStatus("mailto");
   }
 
   return (
@@ -157,23 +144,15 @@ export function CTA() {
         <div className="border p-6 sm:p-8" style={{ borderColor: "var(--hairline-dark)" }}>
           {status === "mailto" ? (
             <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
-              <p className="font-display text-xl font-medium text-white">One more step.</p>
+              <p className="font-display text-xl font-medium text-white">Your email is ready.</p>
               <p className="mt-3 max-w-xs text-sm leading-relaxed" style={{ color: "var(--white-soft)" }}>
-                Your email app has opened with the inquiry ready to send. If it
-                did not, please write to Guy@p32.Ltd directly.
-              </p>
-            </div>
-          ) : status === "submitted" ? (
-            <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
-              <p className="font-display text-xl font-medium text-white">Inquiry received.</p>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed" style={{ color: "var(--white-soft)" }}>
-                Your message has reached the P32 team directly and
-                confidentially. We will be in touch shortly.
+                Your email app has opened with the inquiry addressed to
+                Guy@p32.Ltd. Press send to reach the team. If it did not open,
+                please write to Guy@p32.Ltd directly.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate>
-              <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Full name" name="name" required autoComplete="name" />
                 <Field label="Organization / community" name="organization" autoComplete="organization" />
@@ -231,10 +210,9 @@ export function CTA() {
 
               <button
                 type="submit"
-                disabled={status === "submitting"}
                 className="mt-8 w-full border border-white/80 py-3.5 font-mono text-xs tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-ink disabled:opacity-50"
               >
-                {status === "submitting" ? "SENDING…" : "SUBMIT CONFIDENTIAL INQUIRY"}
+                SEND CONFIDENTIAL INQUIRY
               </button>
             </form>
           )}
