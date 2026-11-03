@@ -22,7 +22,7 @@ They arrive needing to determine:
 
 ## Product Purpose
 
-P32 Sentinel is a premium intelligence-and-security marketing landing page for Project 32 Ltd (P32), built to generate qualified, confidential inquiries and consultation requests from ultra-high-net-worth individuals, families, family offices, corporations, executives, and organizations with complex global exposure.
+P32 Sentinel is a premium intelligence-and-security marketing landing page for Project 32 Ltd (P32), built to generate qualified, confidential inquiries and consultation requests from individuals, families, family offices, corporations, executives, and organizations with complex global exposure.
 
 Success is measured by qualified confidential contact/consultation requests initiated by the decision-makers described above — not general traffic, newsletter signups, or self-serve conversion.
 
@@ -52,7 +52,7 @@ Engagement model: P32 works with a limited number of principals and organization
 
 ## Capabilities and Constraints
 
-**Four core service pillars** (source: Security Architecture for Ultra-High-Net-Worth):
+**Four core service pillars** (source: Security Architecture brief):
 
 1. **Principal & Family Protection** — executive protection strategy and deployment; family risk mapping (residences, travel, routines); discreet lifestyle security integration; exposure reduction across digital and physical domains.
 2. **Corporate & Organizational Security** — internal threat and access vulnerability audits; employee, contractor, and vendor risk assessment; insider risk mitigation and control frameworks; crisis management and continuity planning.
@@ -113,7 +113,7 @@ Engagement model: P32 works with a limited number of principals and organization
 ## Evidence on Hand
 
 - Two source documents are the sole factual basis for this build:
-  - `Security Architecture for Ultra-High-Net-Worth (1) (1).pdf` — positioning, audience, four core service pillars, differentiators, credentials, licensing, team background, engagement model.
+  - Security Architecture brief (PDF) — positioning, audience, four core service pillars, differentiators, credentials, licensing, team background, engagement model.
   - `Materials for Guy Landing Page.docx` — sixteen expanded intelligence, cyber, monitoring, penetration-testing, and operational capability domains (internally labeled "P9").
 - No testimonials, client names, case studies, press mentions, or quantitative metrics were supplied. Future work must not fabricate any of these.
 - Contact details (guy@p32.ltd, 786-979-1402) exist in source material but are withheld from publication pending explicit user approval; the CTA needs an alternate confidential-inquiry path.
