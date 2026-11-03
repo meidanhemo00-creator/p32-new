@@ -31,7 +31,7 @@ const isNonProduction = process.env.VERCEL_ENV !== "production";
 export const metadata: Metadata = {
   title: "P32. Sentinel - Intelligence. Security. Peace of mind.",
   description:
-    "P32 designs and operates a unified, intelligence-led security architecture for ultra-high-net-worth individuals, families, family offices, and organizations with complex global exposure.",
+    "P32 designs and operates a unified, intelligence-led security architecture for individuals, families, family offices, and organizations with complex global exposure.",
   ...(isNonProduction && {
     robots: { index: false, follow: false, nocache: true },
   }),

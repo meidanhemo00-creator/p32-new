@@ -22,7 +22,7 @@ They arrive needing to determine:
 
 ## Product Purpose
 
-P32 Sentinel is a premium intelligence-and-security marketing landing page for Project 32 Ltd (P32), built to generate qualified, confidential inquiries and consultation requests from ultra-high-net-worth individuals, families, family offices, corporations, executives, and organizations with complex global exposure.
+P32 Sentinel is a premium intelligence-and-security marketing landing page for Project 32 Ltd (P32), built to generate qualified, confidential inquiries and consultation requests from individuals, families, family offices, corporations, executives, and organizations with complex global exposure.
 
 Success is measured by qualified confidential contact/consultation requests initiated by the decision-makers described above — not general traffic, newsletter signups, or self-serve conversion.
 
@@ -42,7 +42,7 @@ Anchor line for the narrative (use where it earns its place): **"Security is not
 
 ## Operating Context
 
-**Opening screen:** the site opens on a restrained, white/off-white cover screen (`app/components/Cover.tsx`) that translates the source PDF's own title page literally — P32 identity, "Licensed and supervised by the Israeli Ministry of Defense," "Security Architecture for Ultra-High-Net-Worth," and "Individuals, Families, Corporations & Global Assets," in minimal black typography with one pale-blue rule as the only color detail. It scroll-transitions into the dark "A Different Category of Risk" section below, which carries the full operating-reality list. This cover is a document coming to life, not a generic marketing hero — keep it distinct from the Hero network-diagram section that follows.
+**Opening screen:** the site opens on a restrained, white/off-white cover screen (`app/components/Cover.tsx`) that translates the source PDF's own title page literally — P32 identity, "Licensed and supervised by the Israeli Ministry of Defense," "Security Architecture" and "For Individuals, Families, Corporations & Global Assets," in minimal black typography with one pale-blue rule as the only color detail. It scroll-transitions into the dark "A Different Category of Risk" section below, which carries the full operating-reality list. This cover is a document coming to life, not a generic marketing hero — keep it distinct from the Hero network-diagram section that follows.
 
 The visitor's operating reality is the premise of the whole narrative: they are not managing one environment but operating across multiple jurisdictions, corporate structures and investments, real estate portfolios, public visibility and private exposure, and a network of family members, advisors, employees, and third parties. Each added layer expands footprint and introduces risk, and these layers are rarely unified under a single security architecture.
 
@@ -54,7 +54,9 @@ Engagement model: P32 works with a limited number of principals and organization
 
 ## Capabilities and Constraints
 
-**Four core service pillars** (source: Security Architecture for Ultra-High-Net-Worth):
+**Four core service pillars** (source: the Security Architecture PDF):
+
+**Binding (2026-11-03):** the client asked to remove all "high-net-worth" / "ultra-high-net-worth" / UHNW wording from the site. Never put it back in copy or metadata.
 
 1. **Principal & Family Protection** — executive protection strategy and deployment; family risk mapping (residences, travel, routines); discreet lifestyle security integration; exposure reduction across digital and physical domains.
 2. **Corporate & Organizational Security** — internal threat and access vulnerability audits; employee, contractor, and vendor risk assessment; insider risk mitigation and control frameworks; crisis management and continuity planning.

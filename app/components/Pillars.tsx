@@ -95,7 +95,7 @@ export function Pillars() {
         </h2>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--black-soft)" }}>
           Project 32 (P32) designs and implements integrated security
-          ecosystems for high-net-worth individuals and complex
+          ecosystems for individuals and complex
           organizations.
         </p>
 

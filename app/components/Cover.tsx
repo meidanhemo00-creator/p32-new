@@ -83,13 +83,10 @@ export function Cover() {
           className="mx-auto mt-8 font-display font-medium leading-[1.08] tracking-[-0.02em] text-black sm:mt-10 text-[clamp(2.75rem,13vw,3.5rem)] sm:text-[clamp(3rem,8.2vw,5.25rem)]"
         >
           <span className="block text-balance sm:whitespace-nowrap">Security Architecture</span>
-          <span className="mt-1 block text-balance sm:mt-0 sm:whitespace-nowrap">
-            for Ultra-High-Net-Worth
-          </span>
         </h1>
 
         <p data-reveal className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-black/60 sm:text-base">
-          Individuals, Families, Corporations &amp; Global Assets
+          For Individuals, Families, Corporations &amp; Global Assets
         </p>
       </div>
 
