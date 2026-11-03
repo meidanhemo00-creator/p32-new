@@ -59,7 +59,7 @@ export function CTA() {
     }
 
     setError(null);
-    // Opens the visitor's email app with the inquiry addressed to Guy.
+    // Opens the visitor's email app with the inquiry addressed to contact@p32.ltd.
     const body = [
       ["Name", "name"],
       ["Organization / community", "organization"],
@@ -71,7 +71,7 @@ export function CTA() {
       .map(([label, key]) => `${label}: ${data.get(key) ?? ""}`)
       .concat(["", String(data.get("message") ?? "")])
       .join("\n");
-    window.location.href = `mailto:Guy@p32.Ltd?subject=${encodeURIComponent(
+    window.location.href = `mailto:contact@p32.ltd?subject=${encodeURIComponent(
       `Confidential inquiry - ${data.get("name")}`,
     )}&body=${encodeURIComponent(body)}`;
     setStatus("mailto");
@@ -147,8 +147,8 @@ export function CTA() {
               <p className="font-display text-xl font-medium text-white">Your email is ready.</p>
               <p className="mt-3 max-w-xs text-sm leading-relaxed" style={{ color: "var(--white-soft)" }}>
                 Your email app has opened with the inquiry addressed to
-                Guy@p32.Ltd. Press send to reach the team. If it did not open,
-                please write to Guy@p32.Ltd directly.
+                contact@p32.ltd. Press send to reach the team. If it did not open,
+                please write to contact@p32.ltd directly.
               </p>
             </div>
           ) : (
