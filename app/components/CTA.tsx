@@ -109,16 +109,10 @@ export function CTA() {
               DIRECT CONTACT
             </span>
             <a
-              href="mailto:Guy@p32.Ltd"
+              href="mailto:contact@p32.ltd"
               className="text-base text-white transition-colors hover:text-[var(--line-bright)]"
             >
-              Guy@p32.Ltd
-            </a>
-            <a
-              href="mailto:Meredith@p32.Ltd"
-              className="text-base text-white transition-colors hover:text-[var(--line-bright)]"
-            >
-              Meredith@p32.Ltd
+              contact@p32.ltd
             </a>
           </div>
 
