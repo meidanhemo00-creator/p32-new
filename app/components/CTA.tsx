@@ -16,6 +16,8 @@ const INQUIRY_TYPES = [
   "Other / Not yet sure",
 ];
 
+const INQUIRY_ENDPOINT = "https://formsubmit.co/ajax/Guy@p32.Ltd";
+
 type Status = "idle" | "submitting" | "submitted";
 
 export function CTA() {
@@ -48,7 +50,7 @@ export function CTA() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reducedMotion]);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -60,10 +62,23 @@ export function CTA() {
 
     setError(null);
     setStatus("submitting");
-    // NOTE: no backend is wired up yet — this is a functional client-side
-    // form pending a secure intake endpoint (see PRODUCT.md: Guy's direct
-    // phone/email stay unpublished; do not fall back to a mailto: link).
-    window.setTimeout(() => setStatus("submitted"), 600);
+    // Inquiries go straight to Guy's inbox via FormSubmit (no backend to run).
+    // The first submission sends Guy a one-time activation email.
+    data.append("_subject", `Confidential inquiry - ${data.get("name")}`);
+    data.append("_template", "table");
+    data.append("_replyto", String(data.get("email")));
+    try {
+      const res = await fetch(INQUIRY_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus("submitted");
+    } catch {
+      setStatus("idle");
+      setError("The inquiry could not be sent. Please email Guy@p32.Ltd directly.");
+    }
   }
 
   return (
@@ -132,15 +147,15 @@ export function CTA() {
         <div className="border p-6 sm:p-8" style={{ borderColor: "var(--hairline-dark)" }}>
           {status === "submitted" ? (
             <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
-              <p className="font-display text-xl font-medium text-white">Draft captured.</p>
+              <p className="font-display text-xl font-medium text-white">Inquiry received.</p>
               <p className="mt-3 max-w-xs text-sm leading-relaxed" style={{ color: "var(--white-soft)" }}>
-                This preview build isn&rsquo;t connected to a live intake
-                channel yet. In production, this message would route
-                directly and confidentially to the P32 team.
+                Your message has reached the P32 team directly and
+                confidentially. We will be in touch shortly.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate>
+              <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Full name" name="name" required autoComplete="name" />
                 <Field label="Organization / community" name="organization" autoComplete="organization" />
