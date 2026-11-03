@@ -181,6 +181,11 @@ export function Credibility() {
               experience across Israel, the United States, and Europe.
             </p>
             <p className="mt-6 text-lg leading-relaxed" style={{ color: "var(--black-soft)" }}>
+              That experience was built protecting people and institutions
+              under constant threat. P32 brings it to Jewish communities and
+              institutions in the United States and Europe.
+            </p>
+            <p className="mt-6 text-lg leading-relaxed" style={{ color: "var(--black-soft)" }}>
               This framework provides more than regulatory authorization. It
               enables access to advanced security technologies not broadly
               available commercially, superior intelligence-gathering

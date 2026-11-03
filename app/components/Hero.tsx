@@ -121,8 +121,8 @@ export function Hero() {
         <p data-fade className="mx-auto mt-8 max-w-xl text-balance text-lg leading-relaxed" style={{ color: "var(--white-soft)" }}>
           Project 32 Ltd is licensed and supervised by the Israeli Ministry
           of Defense. P32 designs and operates a unified, intelligence-led
-          security architecture across people, residences, travel, digital
-          exposure, corporate structures, assets, infrastructure, and global
+          security architecture across people, communities, facilities,
+          travel, digital exposure, assets, infrastructure, and global
           operations.
         </p>
         <div data-fade className="mt-10 flex flex-wrap items-center justify-center gap-6">

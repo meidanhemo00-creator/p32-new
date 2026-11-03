@@ -27,7 +27,7 @@ const PILLARS = [
       "Internal threat and access vulnerability audits",
       "Employee, contractor, and vendor risk assessment",
       "Insider risk mitigation and control frameworks",
-      "Crisis management and continuity planning",
+      "Crisis management, continuity, and community resilience planning",
     ],
   },
   {

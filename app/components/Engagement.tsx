@@ -8,7 +8,7 @@ import { Grain } from "./Grain";
 const TRAITS = [
   { tag: "01", label: "Fully customized" },
   { tag: "02", label: "Intelligence-driven" },
-  { tag: "03", label: "Built for long-term control - not temporary coverage" },
+  { tag: "03", label: "Built for long-term resilience - not temporary coverage" },
 ];
 
 export function Engagement() {
