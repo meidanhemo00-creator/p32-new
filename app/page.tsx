@@ -8,6 +8,7 @@ import { ExecutiveProtection } from "./components/ExecutiveProtection";
 import { Pillars } from "./components/Pillars";
 import { Capabilities } from "./components/Capabilities";
 import { Canine } from "./components/Canine";
+import { Cyber } from "./components/Cyber";
 import { Credibility } from "./components/Credibility";
 import { SatelliteReach } from "./components/SatelliteReach";
 import { GlobalReach } from "./components/GlobalReach";
@@ -28,6 +29,7 @@ export default function Home() {
         <ExecutiveProtection />
         <Pillars />
         <Capabilities />
+        <Cyber />
         <Canine />
         <Credibility />
         <SatelliteReach />

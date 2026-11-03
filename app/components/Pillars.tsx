@@ -15,7 +15,7 @@ const PILLARS = [
     items: [
       "Executive protection strategy and deployment",
       "Family risk mapping - residences, travel, routines",
-      "Discreet lifestyle security integration",
+      "Protection for leadership, staff, and their families",
       "Exposure reduction across digital and physical domains",
     ],
   },
@@ -37,7 +37,7 @@ const PILLARS = [
     items: [
       "Residential, community, and institutional security architecture",
       "Facility risk design - synagogues, schools, and community centers",
-      "Global travel and movement security planning",
+      "Event, travel, and movement security planning",
       "Secure logistics and operational movement",
     ],
   },

@@ -8,7 +8,7 @@ import { Grain } from "./Grain";
 const LAYERS = [
   { ref: "A1", label: "Multiple jurisdictions" },
   { ref: "A2", label: "Corporate structures and investments" },
-  { ref: "A3", label: "Real estate portfolios" },
+  { ref: "A3", label: "Facilities, events, and public gatherings" },
   { ref: "A4", label: "Public visibility and private exposure" },
   { ref: "B1", label: "Family members, advisors, employees, and third parties" },
 ];

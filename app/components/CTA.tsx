@@ -11,6 +11,8 @@ const INQUIRY_TYPES = [
   "Corporate & Organizational Security",
   "Asset & Infrastructure Protection",
   "Intelligence & Risk Oversight",
+  "Community & Institutional Security",
+  "Cyber Intelligence & Exposure",
   "Other / Not yet sure",
 ];
 
@@ -158,7 +160,7 @@ export function CTA() {
                     name="inquiryType"
                     className="mt-2 w-full border bg-transparent px-3 py-2.5 text-sm text-white"
                     style={{ borderColor: "var(--hairline-dark)" }}
-                    defaultValue={INQUIRY_TYPES[4]}
+                    defaultValue={INQUIRY_TYPES[INQUIRY_TYPES.length - 1]}
                   >
                     {INQUIRY_TYPES.map((option) => (
                       <option key={option} value={option} className="bg-ink">
